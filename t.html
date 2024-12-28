@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Это точно не казик )</title>
+    <link rel="stylesheet" href="t.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+            <div>
+                <div class="logo-text">Рокетка ежже</div>
+                <div class="logo-subtext">наша задача обмануть эту ракетку</div>
+            </div>
+        </div>
+        <div class="Balanse">
+            <div class="Balanse-number" id="balanceDisplay">Баланс: 1000</div>
+        </div>
+        <div class="header-controls">
+            <button onclick="saveBalance()">Сохранить общий баланс</button>
+        </div>
+    </header>
+    
+    <div class="game-window">
+        <h1>Рулетка ежже</h1>
+        <div class="wheel-container">
+            <canvas id="wheel" width="600" height="600"></canvas>
+        </div>
+        <div id="result" class="result"></div>
+        <div class="controls">
+            <input type="number" id="betAmount" placeholder="Введите ставку" min="1">
+            <input type="number" id="chosenNumber" placeholder="Выберите число (1-31)" min="1" max="31">
+            <button id="spinButton">Покрутить ежже</button>
+        </div>
+
+    <!-- Описание игры -->
+    <div id="game-description">
+        <h2>Правила игры в рулетку</h2>
+        <p>В этой игре вам предстоит ставить на выбранные числа или цвета, и вращать колесо рулетки.</p>
+        <p>Существует несколько типов ставок: на число, на цвет (красное или черное), четность и другие.</p>
+        <h3>Как играть:</h3>
+        <ul>
+            <li><strong>Выберите ставку:</strong> Введите сумму, которую хотите поставить в поле "Введите ставку".</li>
+            <li><strong>Нажмите "Играть":</strong> После того, как ставка сделана, нажмите на кнопку "Играть" для начала вращения рулетки.</li>
+            <li><strong>Выигрыш:</strong> Если ваше число или цвет совпадает с выпавшим, вы выигрываете.</li>
+        </ul>
+        <p>Не забудьте следить за балансом, чтобы успеть вовремя вывести свои выигрыши!</p>
+    </div>
+
+    <div class="contact-telegram">
+        <a href="https://t.me/york1n" target="_blank" title="Связь">
+            <img src="tg.png" class="telegram-icon">
+        </a>
+        <span class="contact-text">для связи</span>
+    </div>  
+    </div>
+    <div class="contact-telegram">
+        <a href="https://t.me/york1n" target="_blank" title="Связь">
+          <img src="tg.png"Telegram" class="telegram-icon">
+        </a>
+        <span class="contact-text">Для связи</span>
+      </div>  
+      
+    
+    <script src="t.js"></script>
+    <script>
+      // Загрузка баланса из localStorage или установка начального значения
+      let balance = parseFloat(localStorage.getItem('balance')) || 100;
+
+      // Обновляем отображение баланса на странице
+      const balanceDisplay = document.getElementById('balanceDisplay');
+      const loginButton = document.getElementById('loginButton');
+
+      function updateBalance() {
+          balanceDisplay.textContent = `Баланс: ${balance}$`;
+          localStorage.setItem('balance', balance); // Сохраняем новый баланс в localStorage
+      }
+    </script>
+</body>
+</html>

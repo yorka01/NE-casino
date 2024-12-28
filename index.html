@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rockets Casino</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+            <div>
+                <div class="logo-text">Рокетка еж же </div>
+                <div class="logo-subtext">наша задача обмануть эту ракетку</div>
+            </div>
+        </div>
+        <div class="Balanse">
+            <div class="Balanse-number" id="balanceDisplay">Баланс: 100$</div>
+        </div>
+        <div class="header-controls">
+            <button id="loginButton">Вывод</button>
+        </div>
+    </header>
+    
+    <div class="container-wrapper">
+        <a href="Crush_mode.html" class="container">
+            <img src="chel.png" alt="Container 1">
+            <div>Crush mode</div>
+        </a>
+        
+        <a href="t.html" class="container">
+            <img src="i.png" alt="Container 2">
+            <div>Печенька (на фазу)</div>
+        </a>
+        <a href="https://arbat25.ru/myi-lechim/lechenie-zavisimostej/ludomaniya-kak-izbavitsya-ot-etoj-zavisimosti" class="container">
+            <img src="casino.png" alt="Container 3">
+            <div>Fruits and BonusHunt</div>
+        </a>
+        
+    </div>
+    <section id="game-description">
+        <h3>Предупреждение</h3>
+        <p>Крч сайт сделан в качестве обучения by"Yorka". Игра не имеет реальных денежных выплат, и все ставки на данном сайте являются фиктивными. А так ты лох по любасы ) амины е</p>
+    </section>
+    <div class="contact-telegram">
+        <a href="https://t.me/york1n" target="_blank" title="Связь">
+          <img src="tg.png"Telegram" class="telegram-icon">
+        </a>
+        <span class="contact-text">Для связи</span>
+      </div>  
+      
+
+    <script>
+        // Загрузка баланса из localStorage или установка начального значения
+        let balance = parseFloat(localStorage.getItem('balance')) || 100;
+
+        // Обновляем отображение баланса на странице
+        const balanceDisplay = document.getElementById('balanceDisplay');
+        const loginButton = document.getElementById('loginButton');
+
+        function updateBalance() {
+            balanceDisplay.textContent = `Баланс: ${balance}$`;
+            localStorage.setItem('balance', balance); // Сохраняем новый баланс в localStorage
+        }
+
+        // Функция для обработки кнопки "Войти"
+        function toggleLogin() {
+            if (loginButton.textContent === 'Вывод') {
+                loginButton.textContent = 'Средства выведены';
+                // Можно здесь добавить логику для авторизации пользователя, если нужно
+            } else {
+                loginButton.textContent = 'Вывод';
+                // Логика для выхода или отмены авторизации
+            }
+        }
+
+        // Пример использования баланса (например, добавление денег)
+        balance += 50; // Пример увеличения баланса на 50$
+        updateBalance(); // Обновление баланса на странице
+
+        // Инициализация
+        updateBalance();
+        loginButton.addEventListener('click', toggleLogin);
+    </script>
+</body>
+</html>
