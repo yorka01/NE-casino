@@ -52,34 +52,34 @@
       
 
     <script>
-        // Загрузка баланса из localStorage или установка начального значения
+        
         let balance = parseFloat(localStorage.getItem('balance')) || 100;
 
-        // Обновляем отображение баланса на странице
+       
         const balanceDisplay = document.getElementById('balanceDisplay');
         const loginButton = document.getElementById('loginButton');
 
         function updateBalance() {
             balanceDisplay.textContent = `Баланс: ${balance}$`;
-            localStorage.setItem('balance', balance); // Сохраняем новый баланс в localStorage
+            localStorage.setItem('balance', balance); 
         }
 
-        // Функция для обработки кнопки "Войти"
+       
         function toggleLogin() {
             if (loginButton.textContent === 'Вывод') {
                 loginButton.textContent = 'Средства выведены';
-                // Можно здесь добавить логику для авторизации пользователя, если нужно
+               
             } else {
                 loginButton.textContent = 'Вывод';
-                // Логика для выхода или отмены авторизации
+             
             }
         }
 
-        // Пример использования баланса (например, добавление денег)
-        balance += 50; // Пример увеличения баланса на 50$
-        updateBalance(); // Обновление баланса на странице
+      
+        balance += 50; 
+        updateBalance();
 
-        // Инициализация
+        
         updateBalance();
         loginButton.addEventListener('click', toggleLogin);
     </script>
