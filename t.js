@@ -5,11 +5,11 @@ const result = document.getElementById('result');
 const balanceDisplay = document.getElementById('balanceDisplay');
 const betAmountInput = document.getElementById('betAmount');
 const chosenNumberInput = document.getElementById('chosenNumber');
-const sectors = 31; // Количество секторов
-const radius = 280; // Радиус колеса
+const sectors = 31;
+const radius = 280; 
 let balance = parseFloat(localStorage.getItem('balance')) || 100;
 
-// Генерация колеса
+
 function drawWheel() {
     const angleStep = (2 * Math.PI) / sectors;
     for (let i = 0; i < sectors; i++) {
@@ -31,7 +31,7 @@ function drawWheel() {
     }
 }
 
-// Рисуем стрелку
+
 function drawArrow() {
     ctx.fillStyle = 'yellow';
     ctx.beginPath();
@@ -42,7 +42,7 @@ function drawArrow() {
     ctx.fill();
 }
 
-// Анимация вращения
+
 function spinWheel() {
     const betAmount = parseInt(betAmountInput.value);
     const chosenNumber = parseInt(chosenNumberInput.value);
@@ -65,10 +65,10 @@ function spinWheel() {
     const randomSector = Math.floor(Math.random() * sectors) + 1;
     const anglePerSector = (2 * Math.PI) / sectors;
 
-    // Целевой угол: корректируем так, чтобы сектор оказался под стрелкой
+   
     const targetAngle = (2 * Math.PI - (randomSector - 1) * anglePerSector) + anglePerSector / 2;
-    const spinAngle = targetAngle + 10 * Math.PI; // Полные обороты
-    const duration = 4000; // 4 секунды
+    const spinAngle = targetAngle + 10 * Math.PI; 
+    const duration = 4000; 
     const startTime = performance.now();
 
     function animate(currentTime) {
@@ -94,7 +94,7 @@ function spinWheel() {
     requestAnimationFrame(animate);
 }
 
-// Отображение результата
+
 function displayResult(randomSector, chosenNumber, betAmount) {
     result.textContent = `Выпало число: ${randomSector}`;
     if (randomSector === chosenNumber) {
@@ -109,18 +109,18 @@ function displayResult(randomSector, chosenNumber, betAmount) {
     localStorage.setItem('balance', balance);
 }
 
-// Плавное замедление
+
 function easeOut(t) {
     return 1 - Math.pow(1 - t, 3);
 }
 
-// Инициализация
+
 spinButton.addEventListener('click', () => {
     result.textContent = '';
     spinWheel();
 });
 
-// Отрисовка колеса и стрелки при загрузке страницы
+
 drawWheel();
 drawArrow();
 balanceDisplay.textContent = `Баланс: ${balance}$`;
