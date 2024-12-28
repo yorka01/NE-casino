@@ -13,13 +13,13 @@ const autoCashoutButton = document.getElementById('autoCashoutButton');
 const multiplierDisplay = document.getElementById('multiplierDisplay');
 const balanceDisplay = document.getElementById('balanceDisplay');
 
-// Обновляем баланс на странице
+
 function updateBalance() {
     balanceDisplay.textContent = `Баланс: ${balance}$`;
     localStorage.setItem('balance', balance);
 }
 
-// Запускаем игру
+
 function startGame() {
     if (gameActive) return;
 
@@ -73,7 +73,7 @@ function startGame() {
     startButton.disabled = true;
 }
 
-// Выводим деньги
+
 function cashOut() {
     if (!gameActive) return;
 
@@ -84,7 +84,7 @@ function cashOut() {
     endGame(true);
 }
 
-// Завершаем игру
+
 function endGame(won) {
     gameActive = false;
     startButton.disabled = false;
@@ -102,7 +102,7 @@ function endGame(won) {
     }, 1000);
 }
 
-// Устанавливаем автовывод
+
 function setAutoCashout() {
     const multiplier = parseFloat(autoCashoutInput.value);
     if (isNaN(multiplier) || multiplier <= 1) {
@@ -112,7 +112,7 @@ function setAutoCashout() {
     autoCashoutMultiplier = multiplier;
     autoCashoutActive = true;
 
-    // Сохраняем значение автовывода в localStorage
+    
     localStorage.setItem('autoCashoutMultiplier', autoCashoutMultiplier);
 
     autoCashoutButton.disabled = true;
@@ -125,8 +125,8 @@ autoCashoutButton.addEventListener('click', setAutoCashout);
 
 updateBalance();
 
-// Если автовывод был активирован ранее, отображаем это на странице
+
 if (autoCashoutActive) {
     autoCashoutInput.value = autoCashoutMultiplier;
-    autoCashoutButton.disabled = true; // Делаем кнопку автовывода неактивной, если он уже установлен
+    autoCashoutButton.disabled = true; 
 }
