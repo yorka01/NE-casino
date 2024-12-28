@@ -35,7 +35,6 @@
             <button id="spinButton">Покрутить ежже</button>
         </div>
 
-    <!-- Описание игры -->
     <div id="game-description">
         <h2>Правила игры в рулетку</h2>
         <p>В этой игре вам предстоит ставить на выбранные числа или цвета, и вращать колесо рулетки.</p>
@@ -66,16 +65,16 @@
     
     <script src="t.js"></script>
     <script>
-      // Загрузка баланса из localStorage или установка начального значения
+    
       let balance = parseFloat(localStorage.getItem('balance')) || 100;
 
-      // Обновляем отображение баланса на странице
+     
       const balanceDisplay = document.getElementById('balanceDisplay');
       const loginButton = document.getElementById('loginButton');
 
       function updateBalance() {
           balanceDisplay.textContent = `Баланс: ${balance}$`;
-          localStorage.setItem('balance', balance); // Сохраняем новый баланс в localStorage
+          localStorage.setItem('balance', balance); 
       }
     </script>
 </body>
