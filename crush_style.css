@@ -130,7 +130,6 @@ button:disabled {
     text-decoration: none;
 }
 
-/* Стиль для описания игры */
 #game-description {
     margin-top: 100px;
     padding: 20px;
@@ -181,7 +180,7 @@ button:disabled {
     text-decoration: underline;
 }
 
-/* Стиль для кнопок */
+
 button {
     padding: 10px 20px;
     font-size: 1.2em;
@@ -202,7 +201,7 @@ button:disabled {
     background-color: #777;
     cursor: not-allowed;
 }
-/* Добавьте стиль для блока автовывод */
+
 .autoCashout {
     margin-top: 15px;
     text-align: center;
